@@ -138,3 +138,28 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
   - `INSTALAR_NO_CELULAR.md`
   - `APK_E_IOS_LEIA-ME.txt`
   - `APP_PUBLICADO.md`
+
+## Continuidade sincronizacao e responsividade em 10/06/2026
+
+- Dono perguntou se 3 celulares ficariam sincronizados; resposta: somente depois
+  de conectar Supabase.
+- `supabase-config.js` agora ja contem a URL do projeto:
+  `https://qtmsowngkcmqbwdpukmc.supabase.co`.
+- Ainda falta colar a `anon public key` no campo `anonKey`.
+- `supabase-schema.sql` foi ajustado para modo imediato com uma linha
+  `business_state/main`, permitindo ler/gravar com a chave anon.
+- O app deixou de pedir e-mail/senha extra para a nuvem. Ao entrar com os 3
+  logins fixos, ele tenta sincronizar automaticamente se o Supabase estiver
+  configurado.
+- Em Ajustes, a area de nuvem agora tem botao `Sincronizar agora`.
+- O salvamento local continua funcionando mesmo sem nuvem.
+- A mesclagem de dados preserva itens por `id` e prefere o registro mais recente
+  por `updatedAt`, `createdAt` ou `saleDate`.
+- Responsividade melhorada:
+  - barra de abas virou rolagem horizontal em telas estreitas;
+  - resumo quebra para uma coluna em celulares pequenos;
+  - relatorios viram uma coluna em telas menores;
+  - cartoes e cabecalhos quebram linha sem cortar conteudo;
+  - valores usam tamanho responsivo.
+- Service worker atualizado para cache `pedro-gas-app-v6`.
+- Novo manual: `SUPABASE_ATIVAR_SINCRONIZACAO.md`.

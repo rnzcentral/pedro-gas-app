@@ -44,6 +44,17 @@ celular. Para reduzir risco:
 2. No fim do dia, use `Ajustes > Baixar backup`.
 3. Guarde o arquivo de backup na pasta `dados`, Google Drive ou WhatsApp.
 
+## Sincronizacao entre celulares
+
+O codigo ja tenta sincronizar pelo Supabase quando a nuvem estiver configurada.
+Falta apenas concluir o painel do Supabase:
+
+1. Colar a `anon public key` em `supabase-config.js`.
+2. Rodar `supabase-schema.sql` no SQL Editor.
+3. Publicar novamente.
+
+O passo a passo curto esta em `SUPABASE_ATIVAR_SINCRONIZACAO.md`.
+
 ## Atualizacao
 
 O APK usa o pacote `br.com.rnzcentral.pedrogas` e a chave local guardada em
