@@ -2,15 +2,33 @@ const STORAGE_KEY = "pedro-gas-app-v2";
 const DATA_VERSION = 2;
 
 const roleLabels = {
-  owner: "Dono",
+  owner: "Dono do projeto",
   partner: "Sócio master",
-  driver: "Entregador"
+  driver: "Logística"
 };
 
 const roleRank = {
   driver: 1,
   partner: 2,
   owner: 3
+};
+
+const appUsers = {
+  rnzcentral: {
+    password: "rnz013",
+    role: "owner",
+    name: "Rnz Central"
+  },
+  master: {
+    password: "mas123",
+    role: "partner",
+    name: "Pedro Pereira Domingos"
+  },
+  logistica: {
+    password: "log123",
+    role: "driver",
+    name: "Entregador"
+  }
 };
 
 const orderStatus = {
@@ -101,8 +119,8 @@ function calculateOrderTotal(product, qty, customerType, manualDiscount) {
   return Math.max(0, subtotal - merchantDiscount - Number(manualDiscount || 0));
 }
 
-function login(role) {
-  state.session = { role, loggedAt: new Date().toISOString() };
+function login(user) {
+  state.session = { username: user.username, role: user.role, name: user.name, loggedAt: new Date().toISOString() };
   saveState();
   renderApp();
 }
@@ -120,6 +138,10 @@ function applyPermissions() {
   document.querySelectorAll("[data-min-role]").forEach((el) => {
     const allowed = roleRank[role] >= roleRank[el.dataset.minRole];
     el.classList.toggle("hidden", !allowed);
+  });
+
+  document.querySelectorAll(".owner-only").forEach((el) => {
+    el.classList.toggle("hidden", role !== "owner");
   });
 
   const active = document.querySelector(".tab-button.active");
@@ -141,7 +163,7 @@ function openTab(tabId) {
 function renderApp() {
   byId("loginView").classList.add("hidden");
   byId("appView").classList.remove("hidden");
-  byId("activeRole").textContent = roleLabels[state.session.role];
+  byId("activeRole").textContent = `${roleLabels[state.session.role]} • ${state.session.name}`;
   applyPermissions();
   renderAll();
 }
@@ -248,11 +270,14 @@ function statusClass(status) {
 function renderOrderActions(order) {
   const status = order.status || "open";
   if (status === "delivered" || status === "canceled") return "";
+  const cancelButton = state.session?.role === "owner"
+    ? `<button class="mini-button danger" type="button" data-order-action="canceled" data-order-id="${order.id}">Cancelar</button>`
+    : "";
   return `
     <div class="action-row">
       <button class="mini-button" type="button" data-order-action="route" data-order-id="${order.id}">Saiu</button>
       <button class="mini-button primary" type="button" data-order-action="delivered" data-order-id="${order.id}">Entregue</button>
-      <button class="mini-button danger" type="button" data-order-action="canceled" data-order-id="${order.id}">Cancelar</button>
+      ${cancelButton}
     </div>
   `;
 }
@@ -516,11 +541,14 @@ function saveClientFromOrder(order) {
 function wireEvents() {
   byId("loginForm").addEventListener("submit", (event) => {
     event.preventDefault();
-    if (byId("passwordInput").value !== "1234") {
-      alert("Senha do protótipo: 1234");
+    const username = byId("loginInput").value.trim().toLowerCase();
+    const password = byId("passwordInput").value;
+    const user = appUsers[username];
+    if (!user || user.password !== password) {
+      alert("Login ou senha inválidos.");
       return;
     }
-    login(byId("roleSelect").value);
+    login({ username, ...user });
   });
 
   byId("logoutButton").addEventListener("click", logout);
@@ -630,6 +658,10 @@ function handleOrderAction(event) {
 function updateOrderStatus(order, nextStatus) {
   const current = order.status || "open";
   if (current === "canceled" || current === "delivered") return;
+  if (nextStatus === "canceled" && state.session?.role !== "owner") {
+    alert("Apenas o dono do projeto pode cancelar/excluir vendas.");
+    return;
+  }
   order.status = nextStatus;
   order.updatedAt = new Date().toISOString();
 

@@ -22,22 +22,17 @@
 
         <form class="login-card" id="loginForm">
           <label>
-            Perfil de acesso
-            <select id="roleSelect">
-              <option value="owner">Dono</option>
-              <option value="partner">Sócio master</option>
-              <option value="driver">Entregador</option>
-            </select>
+            Login
+            <input id="loginInput" type="text" autocomplete="username" required />
           </label>
           <label>
             Senha
-            <input id="passwordInput" type="password" inputmode="numeric" autocomplete="current-password" placeholder="1234" />
+            <input id="passwordInput" type="password" autocomplete="current-password" required />
           </label>
           <button class="primary-button" type="submit">
             <i data-lucide="log-in"></i>
             Entrar
           </button>
-          <p class="hint">Protótipo local: use a senha <strong>1234</strong>. Depois trocamos por login seguro em nuvem.</p>
         </form>
       </section>
 
@@ -74,15 +69,15 @@
               <i data-lucide="truck"></i>
               Entregas
             </button>
-            <button class="tab-button" type="button" data-tab="clients" data-min-role="driver">
+            <button class="tab-button" type="button" data-tab="clients" data-min-role="partner">
               <i data-lucide="users"></i>
               Clientes
             </button>
-            <button class="tab-button" type="button" data-tab="products" data-min-role="driver">
+            <button class="tab-button" type="button" data-tab="products" data-min-role="partner">
               <i data-lucide="package"></i>
               Produtos
             </button>
-            <button class="tab-button" type="button" data-tab="reports" data-min-role="partner">
+            <button class="tab-button" type="button" data-tab="reports" data-min-role="driver">
               <i data-lucide="chart-column"></i>
               Relatórios
             </button>
@@ -164,7 +159,7 @@
 
             <div class="section-heading list-heading">
               <h2>Pedidos recentes</h2>
-              <button class="text-button" type="button" id="clearOrdersButton">
+            <button class="text-button owner-only" type="button" id="clearOrdersButton">
                 <i data-lucide="trash-2"></i>
                 Limpar teste
               </button>
