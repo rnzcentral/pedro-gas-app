@@ -1,0 +1,23 @@
+Pedro gas, agua e racao - instalacao
+
+Este projeto esta pronto como PWA, que e o formato correto para:
+- instalar hoje em Android e iPhone;
+- atualizar o app pelo proprio link, sem reenviar instalador;
+- manter dados locais e sincronizar com nuvem.
+
+APK Android:
+- Nao foi gerado nesta maquina porque nao ha Java/JDK/Gradle instalados.
+- Para gerar APK nativo depois, instalar Android Studio/JDK e empacotar com Capacitor ou PWABuilder.
+
+iPhone/iOS:
+- Nao existe instalacao livre de IPA sem Apple Developer, TestFlight ou App Store.
+- Para usar hoje no iPhone, abrir o link HTTPS no Safari e usar "Adicionar a Tela de Inicio".
+
+Arquivo para publicar hoje:
+- instalavel-pedro-gas-pwa.zip
+
+Como usar:
+1. Publique o conteudo do ZIP em GitHub Pages, Netlify ou Vercel.
+2. Abra o link HTTPS no celular.
+3. Android: Chrome > menu > Instalar app.
+4. iPhone: Safari > compartilhar > Adicionar a Tela de Inicio.
