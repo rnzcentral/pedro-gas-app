@@ -143,11 +143,18 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 
 - Dono perguntou se 3 celulares ficariam sincronizados; resposta: somente depois
   de conectar Supabase.
-- `supabase-config.js` agora ja contem a URL do projeto:
-  `https://qtmsowngkcmqbwdpukmc.supabase.co`.
-- Ainda falta colar a `anon public key` no campo `anonKey`.
+- Projeto Supabase criado:
+  - Nome: `pedro-gas-agua-racao`.
+  - Project ref: `bhviwfevchovntyfiahm`.
+  - URL: `https://bhviwfevchovntyfiahm.supabase.co`.
+- `supabase-config.js` agora ja contem URL e publishable key:
+  `sb_publishable_9Tn7INt27kLxOlv9vij5Ig_peEmT8Cn`.
 - `supabase-schema.sql` foi ajustado para modo imediato com uma linha
   `business_state/main`, permitindo ler/gravar com a chave anon.
+- SQL executado com sucesso no Supabase em 10/06/2026.
+- Teste direto da API:
+  - GET em `/rest/v1/business_state?id=eq.main&select=data,updated_at` retornou HTTP 200.
+  - POST em `/rest/v1/business_state` retornou HTTP 200.
 - O app deixou de pedir e-mail/senha extra para a nuvem. Ao entrar com os 3
   logins fixos, ele tenta sincronizar automaticamente se o Supabase estiver
   configurado.
