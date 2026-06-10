@@ -1,31 +1,47 @@
 # App publicado
 
-Link do app:
+Link principal usado pelo APK:
+
+```text
+https://rnzcentral.github.io/
+```
+
+Link antigo do projeto, mantido como copia:
 
 ```text
 https://rnzcentral.github.io/pedro-gas-app/
 ```
 
-## Como instalar no Android
+## APK Android
 
-1. Abra o link no Chrome do celular.
-2. Toque nos tres pontos.
-3. Toque em `Instalar app` ou `Adicionar a tela inicial`.
-4. Abra pelo icone `Pedro gas`.
+Arquivo na raiz do projeto:
 
-## Como instalar no iPhone
+```text
+Pedro-Gas.apk
+```
 
-1. Abra o link no Safari.
-2. Toque no botao de compartilhar.
-3. Toque em `Adicionar a Tela de Inicio`.
-4. Abra pelo icone `Pedro gas`.
+Download publicado pelo GitHub Pages do repositorio principal:
+
+```text
+https://rnzcentral.github.io/pedro-gas-app/Pedro-Gas.apk
+```
 
 ## Atualizacoes
 
-Quando o app for alterado e publicado no mesmo repositorio, ele atualiza pelo mesmo link. O usuario nao precisa baixar outro instalador.
-
-Repositorio:
+O APK final foi gerado com pacote:
 
 ```text
-https://github.com/rnzcentral/pedro-gas-app
+br.com.rnzcentral.pedrogas
 ```
+
+Para atualizar por cima no Android, futuras versoes precisam usar o mesmo pacote
+e a mesma chave de assinatura local.
+
+O app tambem carrega a publicacao web em:
+
+```text
+https://rnzcentral.github.io/
+```
+
+Quando publicamos alteracoes nesse link, o app instalado passa a usar a nova
+versao sem trocar de icone.

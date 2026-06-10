@@ -4,5 +4,6 @@ SUPABASE_SECRETS_LOCAL.txt
 android-keystore-local/
 android-build/
 android-build-signed/
+android-build-root-signed/
 package-request*.json
 pedro-gas-android-package*.zip

@@ -1,52 +1,53 @@
-# Instalar no celular
+# Instalar no celular Android
 
-## Caminho recomendado hoje
+## Instalador pronto
 
-Este app foi preparado como PWA. Isso permite:
+Use este arquivo da raiz do projeto:
 
-- Instalar no Android e no iPhone pela tela inicial.
-- Atualizar o app sem reinstalar APK/IPA.
-- Evoluir o código mantendo os dados locais e a sincronização em nuvem.
+```text
+Pedro-Gas.apk
+```
 
-Você usa o navegador apenas para instalar pela primeira vez. Depois disso, o app aparece com ícone na tela inicial e abre em tela própria, parecido com app baixado da loja.
+## Passo a passo
 
-## Android
+1. Copie `Pedro-Gas.apk` para o celular.
+2. Abra o arquivo no celular.
+3. Se aparecer bloqueio, toque em `Configuracoes`.
+4. Ative `Permitir desta fonte` para Arquivos, Chrome, Drive ou WhatsApp.
+5. Volte e toque em `Instalar`.
+6. Abra pelo icone `Pedro Gas`.
 
-1. Publique o app em um link HTTPS.
-2. Abra o link no Chrome do celular.
-3. Toque no menu de três pontos.
-4. Toque em `Adicionar à tela inicial` ou `Instalar app`.
-5. Depois abra pelo ícone criado na tela inicial.
+## Atualizacao
+
+Para atualizar por APK, instale uma nova versao por cima. O Android so aceita a
+atualizacao se o app continuar com:
+
+```text
+br.com.rnzcentral.pedrogas
+```
+
+e for assinado com a mesma chave local.
+
+O app tambem usa a versao publicada em:
+
+```text
+https://rnzcentral.github.io/
+```
+
+Entao varias melhorias de tela e regra podem chegar ao app instalado quando essa
+publicacao for atualizada.
+
+## Dados
+
+Nesta fase os dados ficam salvos no armazenamento local do app no celular. Para
+seguranca:
+
+1. Entre como Dono.
+2. Abra `Ajustes`.
+3. Toque em `Baixar backup`.
+4. Guarde o arquivo em Google Drive, WhatsApp ou na pasta `dados`.
 
 ## iPhone
 
-1. Abra o link HTTPS no Safari.
-2. Toque no botão de compartilhar.
-3. Toque em `Adicionar à Tela de Início`.
-4. Depois abra pelo ícone criado na tela inicial.
-
-## Sobre APK e iOS nativo
-
-- APK Android exige Java/JDK, Gradle e empacotamento Android, que não estão instalados neste computador agora.
-- iPhone não instala IPA livremente sem Apple Developer, TestFlight ou App Store.
-- Para atualização automática sem transferir instalador, PWA é o melhor caminho inicial.
-
-## Atualização automática
-
-Quando fizermos alterações e publicarmos no mesmo link HTTPS, o celular baixa a versão nova automaticamente. O usuário não precisa baixar outro instalador.
-
-Os dados ficam protegidos porque:
-
-- vendas/clientes/produtos ficam no armazenamento local do app;
-- existe backup JSON;
-- a próxima etapa é Supabase para nuvem.
-
-## Para publicar grátis
-
-Opções gratuitas:
-
-- GitHub Pages
-- Netlify
-- Vercel
-
-Depois de publicado, basta abrir o link no celular e instalar.
+Nao e foco agora. iPhone nao instala APK. Para iOS, depois usaremos PWA pelo
+Safari ou criaremos uma distribuicao via Apple Developer/TestFlight.

@@ -1,54 +1,62 @@
-# Manual de instalação - Pedro gás, água e ração
+# Manual de instalacao Android - Pedro Gas, Agua e Racao
 
-## O que este app é
+Foco atual: Android com APK fora da Play Store.
 
-Este app está sendo feito como PWA. Na prática:
+## Arquivo instalavel
 
-- instala no Android;
-- instala no iPhone;
-- cria ícone na tela inicial;
-- abre como aplicativo, sem barra comum do navegador;
-- atualiza sozinho quando publicamos uma versão nova no mesmo link.
+O instalador esta na raiz do projeto:
 
-## Por que não APK/IPA agora
+```text
+Pedro-Gas.apk
+```
 
-APK Android e IPA iPhone são instaladores nativos. Eles não são o melhor caminho para atualização automática simples:
+Tambem existe:
 
-- APK exige Android Studio/JDK/Gradle para gerar e assinar.
-- iPhone exige Apple Developer, TestFlight ou App Store.
-- PWA funciona hoje, em Android e iPhone, sem loja.
+```text
+Pedro-Gas.aab
+```
 
-## Android
+O arquivo `.aab` serve para Play Store no futuro. Para instalar direto no celular,
+use o `.apk`.
 
-1. Abra o link HTTPS do app no Chrome.
-2. Toque nos três pontos.
-3. Toque em `Instalar app` ou `Adicionar à tela inicial`.
-4. Confirme.
-5. Abra pelo ícone `Pedro gás`.
+## Como instalar no Android
+
+1. Envie `Pedro-Gas.apk` para o celular por cabo USB, Google Drive, WhatsApp ou
+   e-mail.
+2. No celular, abra o arquivo `Pedro-Gas.apk`.
+3. Se o Android bloquear, toque em `Configuracoes`.
+4. Ative `Permitir desta fonte` para o app usado para abrir o arquivo
+   (Arquivos, Chrome, Drive ou WhatsApp).
+5. Volte e toque em `Instalar`.
+6. Abra pelo icone `Pedro Gas`.
+
+## Atualizacao sem perder dados
+
+Quando eu gerar uma nova versao:
+
+1. O pacote precisa continuar sendo `br.com.rnzcentral.pedrogas`.
+2. A assinatura precisa usar a mesma chave guardada localmente.
+3. Voce instala o novo `Pedro-Gas.apk` por cima do antigo.
+4. Os dados locais continuam no aparelho.
+
+Parte das melhorias de tela e regras tambem pode atualizar pelo link publicado:
+
+```text
+https://rnzcentral.github.io/
+```
+
+## Backup obrigatorio nesta fase
+
+Enquanto a nuvem ainda nao estiver conectada:
+
+1. Abra o app.
+2. Entre como Dono.
+3. Va em `Ajustes`.
+4. Toque em `Baixar backup`.
+5. Guarde o arquivo em local seguro.
 
 ## iPhone
 
-1. Abra o link HTTPS do app no Safari.
-2. Toque no botão de compartilhar.
-3. Toque em `Adicionar à Tela de Início`.
-4. Confirme.
-5. Abra pelo ícone `Pedro gás`.
-
-## Atualizações
-
-Quando fizermos nova versão:
-
-1. Publicamos os arquivos novos no mesmo link.
-2. O app instalado atualiza o cache automaticamente.
-3. O usuário continua abrindo pelo mesmo ícone.
-4. Não precisa baixar outro APK ou instalador.
-
-## Dados
-
-O app salva dados no aparelho e terá sincronização em nuvem pelo Supabase.
-
-Para segurança:
-
-1. Use `Ajustes > Baixar backup`.
-2. Guarde o arquivo na pasta `dados`.
-3. Guarde também no Google Drive.
+Por enquanto nao vamos focar em iPhone. iOS nao instala APK, e IPA exige Apple
+Developer, TestFlight ou App Store. Quando voltarmos ao iPhone, o caminho mais
+rapido sera instalar o PWA pelo Safari.

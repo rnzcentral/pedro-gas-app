@@ -103,3 +103,38 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Cancelar devolve estoque uma vez.
 - Vendas canceladas nao entram no faturamento nem nos relatorios.
 - Service worker atualizado para cache `pedro-gas-app-v4`.
+
+## Continuidade Android em 10/06/2026
+
+- Dono pediu foco em Android com APK instalavel fora da Play Store.
+- Login visual foi ajustado para nao exibir usuario de exemplo nem seletor.
+- Logins fixos atuais:
+  - Dono do projeto: `rnzcentral`.
+  - Socio master/Pedro Pereira Domingos: `master`.
+  - Entregador/logistica: `logistica`.
+- Senhas estao no `app.js` para uso imediato. Isso e apenas fase inicial; mover
+  autenticacao para backend antes de uso sensivel ou multiaparelho real.
+- Permissoes atuais:
+  - Dono: acesso total, pode excluir/cancelar/restaurar/alterar dados.
+  - Socio master: gestao, vendas, estoque, relatorios e futuros dados gerenciais.
+  - Entregador: pedidos, entregas e relatorios de dia, semana e mes.
+- Projeto raiz do GitHub Pages publicado em `https://rnzcentral.github.io/`.
+- Repositorio raiz usado pelo APK: `rnzcentral/rnzcentral.github.io`.
+- `assetlinks.json` responde em `https://rnzcentral.github.io/.well-known/assetlinks.json`.
+- APK final gerado com PWABuilder/CloudAPK:
+  - `Pedro-Gas.apk`
+  - `Pedro-Gas.aab`
+  - packageId: `br.com.rnzcentral.pedrogas`
+  - appVersion: `1.0.1.0`
+  - appVersionCode: `2`
+  - startUrl: `/`
+  - host: `https://rnzcentral.github.io`
+- A chave de assinatura esta em `android-keystore-local/`, ignorada pelo Git.
+  Guardar essa pasta para permitir atualizacoes futuras por cima do APK atual.
+- Pasta temporaria `android-build-root-signed/` e ZIPs de pacote ficam ignorados.
+- Manuais atualizados:
+  - `README.md`
+  - `MANUAL_INSTALACAO_ANDROID_IOS.md`
+  - `INSTALAR_NO_CELULAR.md`
+  - `APK_E_IOS_LEIA-ME.txt`
+  - `APP_PUBLICADO.md`

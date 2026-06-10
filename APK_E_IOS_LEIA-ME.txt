@@ -1,23 +1,24 @@
-Pedro gas, agua e racao - instalacao
+Pedro Gas, Agua e Racao - Android
 
-Este projeto esta pronto como PWA, que e o formato correto para:
-- instalar hoje em Android e iPhone;
-- atualizar o app pelo proprio link, sem reenviar instalador;
-- manter dados locais e sincronizar com nuvem.
+Foco atual: APK Android fora da Play Store.
 
-APK Android:
-- Nao foi gerado nesta maquina porque nao ha Java/JDK/Gradle instalados.
-- Para gerar APK nativo depois, instalar Android Studio/JDK e empacotar com Capacitor ou PWABuilder.
+Arquivo instalavel:
+- Pedro-Gas.apk
 
-iPhone/iOS:
-- Nao existe instalacao livre de IPA sem Apple Developer, TestFlight ou App Store.
-- Para usar hoje no iPhone, abrir o link HTTPS no Safari e usar "Adicionar a Tela de Inicio".
+Como instalar:
+1. Copie o APK para o celular.
+2. Abra o arquivo no Android.
+3. Permita instalar app desconhecido para Arquivos, Chrome, Drive ou WhatsApp.
+4. Toque em Instalar.
+5. Abra pelo icone Pedro Gas.
 
-Arquivo para publicar hoje:
-- instalavel-pedro-gas-pwa.zip
+Atualizacoes:
+- Para atualizar por APK, instalar a nova versao por cima.
+- O packageId precisa continuar br.com.rnzcentral.pedrogas.
+- A assinatura precisa usar a mesma chave local guardada fora do Git.
+- Alteracoes publicadas em https://rnzcentral.github.io/ tambem chegam ao app.
 
-Como usar:
-1. Publique o conteudo do ZIP em GitHub Pages, Netlify ou Vercel.
-2. Abra o link HTTPS no celular.
-3. Android: Chrome > menu > Instalar app.
-4. iPhone: Safari > compartilhar > Adicionar a Tela de Inicio.
+iPhone:
+- Nao e foco agora.
+- iPhone nao instala APK.
+- IPA exige Apple Developer, TestFlight ou App Store.

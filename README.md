@@ -1,78 +1,61 @@
-# Pedro gás, água e ração
+# Pedro Gas, Agua e Racao
 
-Base inicial de app instalável para gerir pedidos, clientes, relatórios e configurações da empresa.
+App operacional para Android, feito para registrar vendas, clientes, entregas,
+produtos, estoque e relatorios da empresa Pedro Gas, Agua e Racao.
 
-## Como abrir
+## Uso hoje
 
-Com Python instalado, rode na pasta do projeto:
+- APK instalavel: `Pedro-Gas.apk`
+- App web publicado: `https://rnzcentral.github.io/`
+- Repositorio principal: `https://github.com/rnzcentral/pedro-gas-app`
+- Publicacao raiz usada pelo APK: `https://github.com/rnzcentral/rnzcentral.github.io`
 
-```powershell
-python -m http.server 4173 --bind 127.0.0.1
-```
+## Login
 
-Depois acesse:
+O app tem 3 acessos fixos nesta fase:
 
-```text
-http://127.0.0.1:4173
-```
+- Dono do projeto: acesso total.
+- Socio master: area de gestao, vendas, estoque, divisao de lucro e relatorios.
+- Entregador: pedidos, entregas e relatorios de dia, semana e mes.
 
-Também é possível abrir o arquivo `index.html` diretamente no navegador, mas o servidor local simula melhor o funcionamento de um app instalável.
+Observacao: os logins fixos estao no codigo para permitir uso imediato. A fase
+seguinte deve mover autenticacao e permissoes para Supabase ou outro backend.
 
 ## O que ja existe
 
-- Login simulado com senha `1234`.
-- Perfis: dono, socio master e entregador.
-- Novo pedido com cliente, telefone, endereco, produto, quantidade, pagamento, entregador, desconto e observacao.
-- Data da venda no pedido, permitindo registrar vendas atrasadas.
-- Cadastro/lista de clientes.
+- Login sem exemplos na tela, com campo de login e senha.
+- Pedidos com cliente, endereco, produto, quantidade, pagamento, desconto,
+  entregador, observacao e data da venda.
+- Cadastro de clientes.
 - Catalogo de produtos com categoria, preco, custo, estoque e estoque minimo.
 - Aba de entregas com status aberto, saiu, entregue e cancelado.
-- Cancelamento devolve estoque e sai do faturamento/relatorios.
-- Desconto automatico para comerciante.
-- Relatorios por dia, semana, mes e ano, com filtros por datas, produto e pagamento.
-- Ajustes de imposto, desconto de comerciante, dados da empresa e fornecedor.
-- Aba suporte com fornecedor e telefone.
-- Manifest e service worker para funcionar como PWA instalavel.
-- Dados locais salvos no navegador/aparelho via `localStorage`, iniciando sem dados de exemplo.
-- Backup e restauração por arquivo JSON em Ajustes.
-- Preparado para Supabase com `supabase-config.js` e `supabase-schema.sql`.
+- Cancelamento devolve estoque e nao entra no faturamento.
+- Relatorios com filtros por periodo, datas, produto e pagamento.
+- Ajustes de imposto, desconto, dados da empresa e fornecedor.
+- Backup e restauracao por arquivo JSON.
+- Preparacao para Supabase em `supabase-config.js` e `supabase-schema.sql`.
 
-## Proximos passos recomendados
+## Dados
 
-1. Conectar banco gratuito e seguro em nuvem, preferencialmente Supabase ou Firebase.
-2. Trocar login simulado por autenticação real.
-3. Criar contas e permissoes editaveis pelo dono.
-4. Publicar em link HTTPS para instalar nos celulares.
-5. Conectar Supabase para sincronizar os aparelhos.
+Nesta primeira versao, os dados ficam no armazenamento local do app/navegador no
+celular. Para reduzir risco:
 
-## Conectar Supabase
+1. Use sempre o mesmo celular principal ate conectar a nuvem.
+2. No fim do dia, use `Ajustes > Baixar backup`.
+3. Guarde o arquivo de backup na pasta `dados`, Google Drive ou WhatsApp.
 
-1. Crie o projeto no Supabase.
-2. Abra o SQL Editor do Supabase e rode o conteudo de `supabase-schema.sql`.
-3. No Supabase, abra `Project Settings` > `API`.
-4. Copie:
-   - Project URL.
-   - anon public key.
-5. Cole esses valores em `supabase-config.js`.
-6. No app, entre como Dono > Ajustes > Nuvem.
-7. Crie login ou entre e sincronize.
+## Atualizacao
 
-## Como usar hoje sem perder dados
+O APK usa o pacote `br.com.rnzcentral.pedrogas` e a chave local guardada em
+`android-keystore-local/`, que esta no `.gitignore`.
 
-1. Use um celular principal enquanto a nuvem ainda não estiver conectada.
-2. No fim do dia, entre em Ajustes e toque em `Baixar backup`.
-3. Guarde o arquivo em Google Drive, WhatsApp ou outro local seguro.
-4. Se trocar de aparelho ou navegador, entre em Ajustes e use `Restaurar backup`.
+Para futuras atualizacoes por APK:
 
-## Instalar no celular
+1. Mantenha o mesmo `packageId`.
+2. Mantenha a mesma chave `signing.keystore`.
+3. Aumente `appVersionCode`.
+4. Gere novo `Pedro-Gas.apk`.
+5. Instale por cima no Android.
 
-Para instalar como app de verdade em Android/iPhone, o ideal é publicar em um endereço HTTPS gratuito. Enquanto estiver rodando só no computador, o celular pode testar pela rede local, mas a instalação PWA completa depende de HTTPS.
-
-Opção recomendada para hoje:
-
-1. Publicar gratuitamente no GitHub Pages, Netlify ou Vercel.
-2. Abrir o link HTTPS no celular.
-3. Android/Chrome: menu de três pontos > `Adicionar à tela inicial` ou `Instalar app`.
-4. iPhone/Safari: botão compartilhar > `Adicionar à Tela de Início`.
-
-Depois disso, o app abre como aplicativo na tela inicial.
+As alteracoes de HTML/CSS/JS publicadas em `https://rnzcentral.github.io/`
+tambem chegam ao app instalado, pois ele carrega a versao publicada.
