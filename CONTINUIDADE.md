@@ -214,3 +214,13 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
   - campo de login sem autocorrecao/maiúscula automatica;
   - inputs com 16px para evitar zoom indesejado no Android/iPhone.
 - Service worker atualizado para cache `pedro-gas-app-v9` para forcar o APK/app instalado a buscar a tela de login nova.
+
+## Melhoria de relatorios em 11/06/2026
+
+- Dono pediu melhorar relatorios com um tipo de extrato listando todas as vendas em rolagem infinita.
+- Aba Relatorios ganhou `Extrato de vendas` abaixo do grafico.
+- O extrato respeita os filtros atuais de periodo, data inicial/final, produto e pagamento.
+- A lista carrega 25 vendas por vez e adiciona mais itens quando o usuario rola perto do fim.
+- Cada linha mostra data, cliente, endereco, produto, quantidade, pagamento, status, total e lucro estimado.
+- Trocar qualquer filtro reinicia o extrato no topo.
+- Service worker atualizado para cache `pedro-gas-app-v10`.
