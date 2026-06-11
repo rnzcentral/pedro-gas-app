@@ -254,3 +254,23 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
   - CSV para planilha;
   - JSON para backup/consulta tecnica.
 - Service worker atualizado para cache `pedro-gas-app-v12`.
+
+## Dispositivos conectados para RNZ em 11/06/2026
+
+- Dono pediu que o perfil RNZ veja dados disponiveis sobre dispositivos conectados por seguranca.
+- Estado ganhou lista `devices`, sincronizada junto com pedidos/clientes/produtos.
+- Cada aparelho recebe um ID local em `pedro-gas-device-id-v1`, sem expor senha.
+- Ao fazer login/sincronizar, o app registra:
+  - login/perfil/nome;
+  - primeiro acesso;
+  - ultima atividade;
+  - atividade recente;
+  - sistema/plataforma aproximada;
+  - tamanho de tela;
+  - idioma;
+  - fuso horario;
+  - user agent do navegador/app.
+- Aba Ajustes > Seguranca dos dados ganhou `Dispositivos conectados`, visivel apenas para RNZ.
+- O aparelho atual aparece marcado como `(este)`.
+- Com o app aberto, um heartbeat atualiza a presenca do dispositivo na nuvem cerca de uma vez por minuto.
+- Service worker atualizado para cache `pedro-gas-app-v13`.
