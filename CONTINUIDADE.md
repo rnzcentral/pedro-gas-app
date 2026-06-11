@@ -170,3 +170,14 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
   - valores usam tamanho responsivo.
 - Service worker atualizado para cache `pedro-gas-app-v6`.
 - Novo manual: `SUPABASE_ATIVAR_SINCRONIZACAO.md`.
+
+## Correcao sincronizacao em 11/06/2026
+
+- Dono informou que ainda nao sincronizava entre celulares.
+- Causa: app so sincronizava em login/salvar/botao manual; celular do motoboy nao ficava escutando alteracoes.
+- Adicionado polling automatico da nuvem a cada 6 segundos enquanto houver sessao ativa.
+- Ao chegar novo pedido aberto/rota por sincronizacao, app mostra aviso interno e, para perfil `logistica`, tenta vibrar e disparar Notification API se o Android permitir.
+- Botao `Entregue` agora salva local, mostra aviso, mantem entrega visivel como `Entregue` e dispara sincronizacao imediata.
+- Aba Entregas agora mostra abertas, em rota e entregues recentes; antes a entregue sumia da lista e parecia nao salvar.
+- Cliente no pedido agora tem busca/lista clicavel de clientes cadastrados alem do campo de nome digitavel.
+- Service worker atualizado para cache `pedro-gas-app-v7` com `skipWaiting()` e `clients.claim()` para acelerar atualizacao do app instalado.
