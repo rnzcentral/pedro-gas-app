@@ -224,3 +224,14 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Cada linha mostra data, cliente, endereco, produto, quantidade, pagamento, status, total e lucro estimado.
 - Trocar qualquer filtro reinicia o extrato no topo.
 - Service worker atualizado para cache `pedro-gas-app-v10`.
+
+## Extrato em formato de banco em 11/06/2026
+
+- Dono pediu o relatorio exatamente como extrato de banco, com data, nome, endereco e rolagem infinita comecando por Hoje/Ontem.
+- Extrato de vendas deixou de ficar preso ao periodo rapido `Dia/Semana/Mes/Ano`; por padrao lista todo o historico em ordem mais recente.
+- Filtros de produto e pagamento continuam funcionando no extrato.
+- Datas inicial/final, quando preenchidas, limitam tambem o extrato.
+- Linhas do extrato agora sao compactas, com agrupamento por `Hoje`, `Ontem` e datas anteriores.
+- Linha principal mostra data, nome do cliente, endereco e valor a direita, parecido com extrato bancario.
+- Produto, quantidade, pagamento e status ficam como detalhes menores abaixo.
+- Service worker atualizado para cache `pedro-gas-app-v11`.
