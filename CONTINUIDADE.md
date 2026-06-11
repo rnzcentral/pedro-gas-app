@@ -235,3 +235,22 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Linha principal mostra data, nome do cliente, endereco e valor a direita, parecido com extrato bancario.
 - Produto, quantidade, pagamento e status ficam como detalhes menores abaixo.
 - Service worker atualizado para cache `pedro-gas-app-v11`.
+
+## Segurança de dados, login e exportação em 11/06/2026
+
+- Dono perguntou se e possivel garantir que dados nao se percam e que celulares fiquem sincronizados 24h.
+- Resposta tecnica registrada: nao existe garantia absoluta se aparelho ficar sem internet/bateria, navegador bloquear segundo plano ou Supabase ficar indisponivel, mas o app foi reforcado para reduzir risco.
+- App continua salvando primeiro no aparelho antes da nuvem.
+- Criada chave local `pedro-gas-app-snapshots-v1` com ate 7 snapshots locais sem sessao, alem do estado principal.
+- Sincronizacao agora tenta novamente quando:
+  - app volta a ficar online;
+  - janela/app ganha foco;
+  - aba volta a ficar visivel;
+  - antes de fechar, o estado local e persistido.
+- Motivos de sync agora incluem `delete`, `online` e `focus`.
+- Tela de login recebeu modo visual `login-mode`, removendo a faixa clara que passava por cima de logo/texto.
+- Extrato ganhou botoes para exportar:
+  - PDF via tela de impressao/salvar PDF do Android/navegador;
+  - CSV para planilha;
+  - JSON para backup/consulta tecnica.
+- Service worker atualizado para cache `pedro-gas-app-v12`.
