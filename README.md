@@ -15,8 +15,14 @@ produtos, estoque e relatorios da empresa Pedro Gas, Agua e Racao.
 O app tem 3 acessos fixos nesta fase:
 
 - Dono do projeto: acesso total.
-- Socio master: area de gestao, vendas, estoque, divisao de lucro e relatorios.
+- Master: area de gestao, vendas, estoque, divisao de lucro e relatorios.
 - Entregador: pedidos, entregas e relatorios de dia, semana e mes.
+
+Acessos atuais:
+
+- RNZ: login `rnz`, senha `rnz013`.
+- Master: login `master`, senha `mas123`.
+- Logistica: login `logistica`, senha `log123`.
 
 Observacao: os logins fixos estao no codigo para permitir uso imediato. A fase
 seguinte deve mover autenticacao e permissoes para Supabase ou outro backend.

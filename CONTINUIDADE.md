@@ -28,8 +28,8 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Configuracao de preco de custo do gas, impostos, dados da empresa e fornecedor.
 - Aba suporte com contato do fornecedor.
 - Login multicamadas:
-  - Dono: acesso total.
-  - Socio master: acesso total exceto permissoes que o dono selecionar.
+  - RNZ: acesso total.
+  - Master: acesso total exceto permissoes que o dono selecionar.
   - Entregador: acesso limitado a area de venda/entrega.
 - Dados em nuvem segura e gratuita na fase seguinte.
 
@@ -49,12 +49,12 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
   - `app.js`: regras do app, dados locais, login simulado, pedidos, clientes, relatorios e ajustes.
   - `manifest.json`: configuracao de instalacao PWA.
   - `sw.js`: cache basico para funcionamento como app instalavel.
-- Login atual e apenas prototipo local:
+- Login inicial era apenas prototipo local:
   - Senha: `1234`.
-  - Perfis: dono, socio master e entregador.
+  - Perfis: dono, master e entregador.
 - Permissoes atuais:
-  - Dono: ve tudo.
-  - Socio master: ve pedidos, clientes, relatorios e suporte.
+  - RNZ: ve tudo.
+  - Master: ve pedidos, clientes, relatorios e suporte.
   - Entregador: ve pedidos, clientes e suporte.
 - Dados atuais ficam no `localStorage` do aparelho/navegador.
 - Nuvem ainda nao conectada. Pedir autorizacao antes de criar conta, configurar banco ou usar servico externo.
@@ -108,15 +108,15 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 
 - Dono pediu foco em Android com APK instalavel fora da Play Store.
 - Login visual foi ajustado para nao exibir usuario de exemplo nem seletor.
-- Logins fixos atuais:
+- Logins fixos criados nesta etapa:
   - Dono do projeto: `rnzcentral`.
-  - Socio master/Pedro Pereira Domingos: `master`.
+  - Master: `master`.
   - Entregador/logistica: `logistica`.
 - Senhas estao no `app.js` para uso imediato. Isso e apenas fase inicial; mover
   autenticacao para backend antes de uso sensivel ou multiaparelho real.
 - Permissoes atuais:
-  - Dono: acesso total, pode excluir/cancelar/restaurar/alterar dados.
-  - Socio master: gestao, vendas, estoque, relatorios e futuros dados gerenciais.
+  - RNZ: acesso total, pode excluir/cancelar/restaurar/alterar dados.
+  - Master: gestao, vendas, estoque, relatorios e futuros dados gerenciais.
   - Entregador: pedidos, entregas e relatorios de dia, semana e mes.
 - Projeto raiz do GitHub Pages publicado em `https://rnzcentral.github.io/`.
 - Repositorio raiz usado pelo APK: `rnzcentral/rnzcentral.github.io`.
@@ -198,3 +198,19 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Estoque baixo agora so conta produtos com estoque minimo maior que zero.
 - Status da nuvem mostra horario da ultima leitura quando disponivel.
 - Service worker atualizado para cache `pedro-gas-app-v8`.
+
+## Ajuste de perfis e login em 11/06/2026
+
+- Dono pediu remover os termos antigos de gestao e nomes pessoais da interface.
+- Perfil dono agora aparece como `RNZ`.
+- Login do dono alterado de `rnzcentral` para `rnz`, senha `rnz013`.
+- Perfil de gestao agora aparece apenas como `Master`, login `master`, senha `mas123`.
+- Perfil de entrega continua como `Logistica`, login `logistica`, senha `log123`.
+- Sessoes antigas sao normalizadas automaticamente ao abrir o app.
+- Tela de login recebeu ajustes de proporcao para celular:
+  - largura maxima fixa e centralizada;
+  - altura usando `100dvh`;
+  - respeito a area segura do aparelho;
+  - campo de login sem autocorrecao/maiúscula automatica;
+  - inputs com 16px para evitar zoom indesejado no Android/iPhone.
+- Service worker atualizado para cache `pedro-gas-app-v9` para forcar o APK/app instalado a buscar a tela de login nova.
