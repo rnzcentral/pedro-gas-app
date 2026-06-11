@@ -181,3 +181,20 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Aba Entregas agora mostra abertas, em rota e entregues recentes; antes a entregue sumia da lista e parecia nao salvar.
 - Cliente no pedido agora tem busca/lista clicavel de clientes cadastrados alem do campo de nome digitavel.
 - Service worker atualizado para cache `pedro-gas-app-v7` com `skipWaiting()` e `clients.claim()` para acelerar atualizacao do app instalado.
+
+## Evolucao ampla em 11/06/2026
+
+- Adicionado painel executivo rapido abaixo do faturamento:
+  - lucro hoje;
+  - ticket medio;
+  - produtos com estoque baixo;
+  - entregas pendentes.
+- Formulario de pedido agora mostra `Total previsto` antes de salvar.
+- Entregas/pedidos ganharam acoes rapidas:
+  - abrir WhatsApp do cliente com mensagem pronta;
+  - abrir endereco no Google Maps;
+  - excluir venda individualmente, somente no login do dono.
+- Exclusao individual restaura estoque quando aplicavel e sincroniza com a nuvem.
+- Estoque baixo agora so conta produtos com estoque minimo maior que zero.
+- Status da nuvem mostra horario da ultima leitura quando disponivel.
+- Service worker atualizado para cache `pedro-gas-app-v8`.
