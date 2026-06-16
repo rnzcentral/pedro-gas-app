@@ -274,3 +274,23 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - O aparelho atual aparece marcado como `(este)`.
 - Com o app aberto, um heartbeat atualiza a presenca do dispositivo na nuvem cerca de uma vez por minuto.
 - Service worker atualizado para cache `pedro-gas-app-v13`.
+
+## Localizacao autorizada e pagamento dividido em 16/06/2026
+
+- Dono pediu rastrear dispositivos por seguranca; implementado apenas com permissao visivel do aparelho.
+- Aba Suporte ganhou botao `Atualizar minha localizacao`.
+- Quando autorizado, o app grava no dispositivo:
+  - latitude;
+  - longitude;
+  - precisao aproximada;
+  - horario da ultima localizacao.
+- Painel RNZ de dispositivos mostra a ultima localizacao e botao `Mapa`.
+- O app tenta renovar localizacao automaticamente apenas quando a permissao ja estiver concedida.
+- Dono pediu clientes pagando com mais de uma forma de pagamento.
+- Formulario de pedido agora tem pagamento dividido: Pix, Dinheiro, Cartao e Fiado.
+- Se deixar pagamento em branco, o app salva o total como Pix para manter uso rapido.
+- Se preencher mais de uma forma, a soma precisa fechar exatamente o total da venda antes de salvar.
+- Pedidos antigos continuam compativeis com `payment`; pedidos novos usam tambem `payments`.
+- Relatorios, entregas, pedidos e extrato mostram pagamento dividido como `Pix R$ X + Dinheiro R$ Y`.
+- Filtro de pagamento entende pedidos antigos e novos.
+- Service worker atualizado para cache `pedro-gas-app-v14`.
