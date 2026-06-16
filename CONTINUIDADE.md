@@ -314,3 +314,16 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Removidos campos visiveis `Tipo de cliente` no pedido, `Tipo` no cliente e `Desconto comerciante (%)` nos ajustes.
 - Regra `merchantDiscount` deixou de afetar o total da venda; o total agora é preço do produto x quantidade menos desconto manual.
 - Service worker atualizado para cache `pedro-gas-app-v16`.
+
+## Botao SOS de emergencia em 16/06/2026
+
+- Dono pediu um botao de seguranca onde qualquer usuario possa emitir alerta para todos os dispositivos conectados.
+- Adicionado botao `SOS` no topo do app, visivel para todos os perfis.
+- Ao acionar, o app cria um alerta em `emergencyAlerts`, sincronizado pela nuvem.
+- Todos os dispositivos conectados passam a exibir tela cheia piscando com detalhes do alerta.
+- O app tenta tocar sirene via Web Audio e vibrar o celular; alguns navegadores podem bloquear audio automatico ate haver interacao do usuario.
+- O alerta tenta capturar a localizacao do aparelho que acionou, mediante permissao do Android/iPhone.
+- Enquanto o alerta estiver ativo no aparelho que acionou, a localizacao tenta atualizar a cada 15 segundos.
+- Tela do SOS mostra quem acionou, horario, dispositivo, ultima localizacao, precisao e link para mapa quando disponivel.
+- Qualquer perfil pode silenciar a sirene localmente e encerrar o alerta para todos.
+- Service worker atualizado para cache `pedro-gas-app-v17`.
