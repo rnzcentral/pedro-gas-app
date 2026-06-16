@@ -302,3 +302,15 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Corrigidos textos visiveis do HTML para portugues correto em UTF-8.
 - Corrigidos textos visiveis restantes no `app.js`, como localização, permissão, endereço, segurança, Cartão e Pedro Gás.
 - Service worker atualizado para cache `pedro-gas-app-v15` para forcar atualizacao no app instalado.
+
+## Fechamento semanal e fim do desconto comerciante em 16/06/2026
+
+- Dono pediu novo modo de fechamento semanal com quanto entrou de Cartão, Pix e Dinheiro.
+- Aba Relatorios ganhou bloco `Fechamento semanal`.
+- Fechamento semanal considera a semana atual de segunda a domingo.
+- Valores somam pagamentos divididos em `payments`; pedidos antigos continuam funcionando via `payment`.
+- `Total recebido` soma Pix + Cartão + Dinheiro. Fiado não entra como recebido.
+- Dono pediu remover desconto por porcentagem de comerciante porque existe produto proprio `gas comercio`.
+- Removidos campos visiveis `Tipo de cliente` no pedido, `Tipo` no cliente e `Desconto comerciante (%)` nos ajustes.
+- Regra `merchantDiscount` deixou de afetar o total da venda; o total agora é preço do produto x quantidade menos desconto manual.
+- Service worker atualizado para cache `pedro-gas-app-v16`.
