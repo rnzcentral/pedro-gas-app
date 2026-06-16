@@ -294,3 +294,11 @@ Construir um app instalavel em Android/iPhone para gerir pedidos, clientes, entr
 - Relatorios, entregas, pedidos e extrato mostram pagamento dividido como `Pix R$ X + Dinheiro R$ Y`.
 - Filtro de pagamento entende pedidos antigos e novos.
 - Service worker atualizado para cache `pedro-gas-app-v14`.
+
+## Correcao de letras/acentos em 16/06/2026
+
+- Dono informou que as letras estavam bugadas.
+- Causa principal: textos visiveis do `index.html` estavam com mojibake, por exemplo `gÃ¡s`, `Ã¡gua`, `raÃ§Ã£o`.
+- Corrigidos textos visiveis do HTML para portugues correto em UTF-8.
+- Corrigidos textos visiveis restantes no `app.js`, como localização, permissão, endereço, segurança, Cartão e Pedro Gás.
+- Service worker atualizado para cache `pedro-gas-app-v15` para forcar atualizacao no app instalado.
